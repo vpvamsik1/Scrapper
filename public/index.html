@@ -1,0 +1,91 @@
+<!DOCTYPE>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+        <title>Scrapper</title>
+        <style>
+            #wrapper {
+                background-color: #007BFF;
+                color: white;
+                margin-top: 50px;
+            }
+            #P1{
+                text-decoration: underline;
+            }
+            #articles{
+                width: 100%;
+                
+                /* float: left; */
+            }
+            #notes{
+                width: 30%;
+                float: right;
+            }
+            .low-margin-bottom {
+                margin-bottom: 5px;
+            }
+            input {
+                height: 36px;
+                font-size: 24px;
+            }
+            textarea {
+                height: 200px;
+                font-size: 18px;
+            }
+            textarea, input {
+                display: block;
+                width: 100%;
+                background-color: #FCF5C7;
+            }
+            #savenote{
+                width: 100%;
+            }
+            h2{
+                text-align: center;
+            }
+            #delete{
+                margin-left: 15px;
+                height: 30px;
+                padding: 0px;
+                padding-top: 0px;
+            }
+            h4{
+                text-decoration: underline;
+            }
+            #noteTitle{
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-light bg-primary">
+            <p class="navbar-brand text-white mb-0" href="#">Scrapper!</p>
+        </nav>
+        
+        <div class="container">
+        <div id="wrapper">
+            <p id="P1">Scraping from the New York Times Opinion Page! Click on the title to save a note that article!</p>
+            
+            <div id="articles">
+                <!-- <p id="P2">Title:</p> -->
+                <!-- <p id="P3" class="low-margin-bottom">Title: </p>
+                <p id="P4" class="low-margin-bottom">Link: </p>
+                <p id="P5">Summary: </p> -->
+                <div id="notes"></div>
+            </div>
+            
+        </div>
+            
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="app.js"></script>
+          
+    </body>
+</html>
