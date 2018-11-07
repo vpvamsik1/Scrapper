@@ -16,7 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI ||"mongodb://localhost/scraper"
+
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+
 
 
 var id = mongoose.Types.ObjectId(id);
