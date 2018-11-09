@@ -1,18 +1,20 @@
-
+$(document).on("click", "#btn1", function(){
+    $.getJSON("/articles", function(data) {
+        // For each one
+        for (var i = 0; i < data.length; i++) {
+          // Display the apropos information on the page
+        //   $("#articles").append("<p data-id='" + data[i]._id + "'>" + "</p>");
+        //   $("#P3").append(data[i].title);
+        //   $("#P4").append(data[i].link);
+        //   $("#P5").append(data[i].summary);
+        $("#articles").append("<p data-id='" + data[i]._id + "'>" + "Title: " + data[i].title + "<br />" + "Link: " + data[i].link + "<br />" + "Summary: " + data[i].summary + "</p>");
+    
+        }
+      });
+});
 
 // Grab the articles as a json
-$.getJSON("/articles", function(data) {
-    // For each one
-    for (var i = 0; i < data.length; i++) {
-      // Display the apropos information on the page
-    //   $("#articles").append("<p data-id='" + data[i]._id + "'>" + "</p>");
-    //   $("#P3").append(data[i].title);
-    //   $("#P4").append(data[i].link);
-    //   $("#P5").append(data[i].summary);
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + "Title: " + data[i].title + "<br />" + "Link: " + data[i].link + "<br />" + "Summary: " + data[i].summary + "</p>");
 
-    }
-  });
 
   $(document).on("click", "p", function() {
     $("#notes").empty();
