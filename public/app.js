@@ -11,6 +11,7 @@ $(document).on("click", "#btn1", function(){
     
         }
       });
+ 
 });
 
 // Grab the articles as a json
