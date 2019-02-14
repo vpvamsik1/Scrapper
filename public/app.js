@@ -1,4 +1,4 @@
-// $(document).on("click", "#btn1", function(){
+$(document).on("click", "#btn1", function(){
     $.getJSON("/articles", function(data) {
         // For each one
         for (var i = 0; i < data.length; i++) {
@@ -8,7 +8,7 @@
         }
       });
  
-// });
+});
 
 // Grab the articles as a json
 
