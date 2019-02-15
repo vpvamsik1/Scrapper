@@ -1,3 +1,9 @@
+//lets require/import the mongodb native drivers.
+var mongodb = require('mongodb');
+
+//We need to work with "MongoClient" interface in order to connect to a mongodb server.
+var MongoClient = mongodb.MongoClient;
+
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
@@ -5,11 +11,7 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-//lets require/import the mongodb native drivers.
-var mongodb = require('mongodb');
 
-//We need to work with "MongoClient" interface in order to connect to a mongodb server.
-var MongoClient = mongodb.MongoClient;
 
 var db = require("./models");
 
