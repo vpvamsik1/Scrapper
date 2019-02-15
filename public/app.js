@@ -1,4 +1,4 @@
-$("#btn1").on("click", function(){
+$(document).on("click", "#btn1", function(){
     $.getJSON("/articles", function(data) {
         console.log("response is " + data);
         // For each one
