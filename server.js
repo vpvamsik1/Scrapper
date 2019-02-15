@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-var db = require("./models");
+
 
 var PORT = process.env.PORT || 3000;
 
@@ -23,9 +23,11 @@ var MONGODB_URI = process.env.MONGODB_URI ||"mongodb://localhost:27017/scraper";
 console.log("before");
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
+console.log(MONGODB_URI);
 
 console.log('after');
 
+var db = require("./models");
 
 
 var id = mongoose.Types.ObjectId(id);
