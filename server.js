@@ -5,6 +5,12 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
+//lets require/import the mongodb native drivers.
+var mongodb = require('mongodb');
+
+//We need to work with "MongoClient" interface in order to connect to a mongodb server.
+var MongoClient = mongodb.MongoClient;
+
 var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
@@ -19,11 +25,24 @@ app.use(express.static("public"));
 // var MONGODB_URI = "mongodb://localhost:27017/scraper"; 
 
 console.log("before url 2");
-
-var MONGODB_URI = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f" && "mongodb://localhost/scraper";
+var url = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f"
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper";
 // || "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
 
 //var MONGODB_URI = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
+// Use connect method to connect to the Server
+MongoClient.connect(url, function (err, db) {
+  if (err) {
+    console.log('Unable to connect to the mongoDB server. Error:', err);
+  } else {
+    console.log('Connection established to', url);
+
+    // do some work here with the database.
+
+    //Close connection
+    db.close();
+  }
+});
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
@@ -36,6 +55,10 @@ console.log('after');
 
 // var id = mongoose.Types.ObjectId(id);
 // console.log("this is 2    " + id);
+
+app.get("/", function (req, res) {
+  res.render("index.html");
+});
 
 app.get("/scrape", function(req, res){
 
