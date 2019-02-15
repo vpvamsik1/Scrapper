@@ -2,11 +2,13 @@ $("#btn1").on("click", function(){
     $.getJSON("/articles", function(data) {
         console.log("response is " + data);
         // For each one
+        console.log("length is " + data.length);
         for (var i = 0; i < data.length; i++) {
 
         $("#articles").append("<p data-id='" + data[i]._id + "'>" + "Title: " + data[i].title + "<br />" + "Link: " + data[i].link + "<br />" + "Summary: " + data[i].summary + "</p>");
     
         }
+        
         
       });
  
