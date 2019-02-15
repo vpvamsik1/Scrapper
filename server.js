@@ -20,7 +20,7 @@ app.use(express.static("public"));
 
 console.log("before url 2");
 
-var MONGODB_URI = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f" || "mongodb://localhost:27017/scraper";
+var MONGODB_URI = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f" && "mongodb://localhost/scraper";
 // || "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
 
 //var MONGODB_URI = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
