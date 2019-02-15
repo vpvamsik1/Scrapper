@@ -16,14 +16,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-var MONGODB_URI = "mongodb://localhost:27017/scraper"; 
+// var MONGODB_URI = "mongodb://localhost:27017/scraper"; 
 
+console.log("before url 2");
 
-// var MONGODB_URI = process.env.MONGODB_URI ||"mongodb://localhost:27017/scraper"; 
+ var MONGODB_URI = process.env.MONGODB_URI ||"mongodb://localhost:27017/scraper"; 
 // || "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
 
-// var MONGODB_URI = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
-console.log("before");
+//var MONGODB_URI = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
+
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 console.log(MONGODB_URI);
@@ -34,13 +35,17 @@ var db = require("./models");
 
 
 var id = mongoose.Types.ObjectId(id);
-console.log("this is " + id);
+console.log("this is 2    " + id);
 
 app.get("/scrape", function(req, res){
+
+  console.log("res is " + res);
     axios.get("https://www.nytimes.com/section/opinion?pagetype=Homepage&action=click&module=Opinion").then(function(response){
+        
         var $ = cheerio.load(response.data);
     
         $("div.story-body").each(function(i, element) {
+          
           var result = {};
     
           result.title = $(this).find("a").text();
