@@ -31,6 +31,7 @@ var db = require("./models");
 
 
 var id = mongoose.Types.ObjectId(id);
+console.log("this is " + id);
 
 app.get("/scrape", function(req, res){
     axios.get("https://www.nytimes.com/section/opinion?pagetype=Homepage&action=click&module=Opinion").then(function(response){
