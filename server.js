@@ -39,6 +39,7 @@ MongoClient.connect(url, function (err, db) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
     console.log('Connection established to', url);
+    console.log("Port is " + PORT);
 
     // do some work here with the database.
 
