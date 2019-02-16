@@ -27,7 +27,7 @@ app.use(express.static("public"));
 // var MONGODB_URI = "mongodb://localhost:27017/scraper"; 
 
 console.log("before url 2");
-var url = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f" || "mongodb://localhost:27017/scraper";
+var url = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper";
 // var url = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper";
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper";
 // || "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
@@ -85,7 +85,9 @@ app.get("/scrape", function(req, res){
           })
           .catch(function(err) {
             // If an error occurred, send it to the client
+            console.log("Unable to read " + err);
             return res.json(err);
+            
           });
         });
         res.send("Scrape Complete");
