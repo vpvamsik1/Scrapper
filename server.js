@@ -27,8 +27,8 @@ app.use(express.static("public"));
 // var MONGODB_URI = "mongodb://localhost:27017/scraper"; 
 
 console.log("before url 2)");
-var url = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
 // var url = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper";
+var url = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper";
 // || "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
 
@@ -49,7 +49,7 @@ MongoClient.connect(url, function (err, db) {
 });
 
 mongoose.Promise = Promise;
-mongoose.connect(url);
+mongoose.connect(url, { useNewUrlParser: true });
 console.log(url);
 
 console.log('after-2');
