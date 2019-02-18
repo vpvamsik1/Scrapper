@@ -34,23 +34,23 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper"
 
 //var MONGODB_URI = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
 // Use connect method to connect to the Server
-MongoClient.connect(MONGODB_URI, function (err, heroku_jsv18f6f) {
+MongoClient.connect(MONGODB_URI, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
-    console.log('Connection established to', url);
+    console.log('Connection established to', MONGODB_URI);
     console.log("Port is " + PORT);
 
     // do some work here with the database.
 
     //Close connection
-    heroku_jsv18f6f.close();
+    db.close();
   }
 });
 
 mongoose.Promise = Promise;
-mongoose.connect(url, { useNewUrlParser: true });
-console.log(url);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+console.log(MONGODB_URI);
 
 console.log('after-2');
 
