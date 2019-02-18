@@ -27,13 +27,9 @@ app.use(express.static("public"));
 // var MONGODB_URI = "mongodb://localhost:27017/scraper"; 
 
 console.log("before url 2)");
-// var url = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper";
-// var url = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper";
-// || "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
 
-//var MONGODB_URI = "mongodb://heroku_jsv18f6f:88d6bdf0mvsmmvtjmv9htunvu@ds151943.mlab.com:51943/heroku_jsv18f6f";
-// Use connect method to connect to the Server
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/scraper";
+
 MongoClient.connect(MONGODB_URI, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
