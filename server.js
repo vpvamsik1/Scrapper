@@ -51,7 +51,7 @@ MongoClient.connect(MONGODB_URI, function (err, db) {
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 console.log(MONGODB_URI);
-console.log(MONGODB_URI)
+// console.log(MONGODB_URI)
 console.log('after-2');
 
 
